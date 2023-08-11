@@ -20,6 +20,8 @@
 		7F0B467A2A86AB03005A27DD /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B46792A86AB03005A27DD /* EndPoint.swift */; };
 		7F0B467C2A86AB1A005A27DD /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B467B2A86AB1A005A27DD /* ErrorMessage.swift */; };
 		7F0B467E2A86AB7E005A27DD /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B467D2A86AB7E005A27DD /* API.swift */; };
+		7F0B46802A86CBE1005A27DD /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B467F2A86CBE1005A27DD /* UIImageView+Extension.swift */; };
+		7F0B46822A86CC22005A27DD /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B46812A86CC22005A27DD /* UITableView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		7F0B46792A86AB03005A27DD /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		7F0B467B2A86AB1A005A27DD /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		7F0B467D2A86AB7E005A27DD /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		7F0B467F2A86CBE1005A27DD /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		7F0B46812A86CC22005A27DD /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +118,6 @@
 				7F0B464C2A86A667005A27DD /* Assets.xcassets */,
 				7F0B464E2A86A667005A27DD /* LaunchScreen.storyboard */,
 				7F0B46512A86A667005A27DD /* Info.plist */,
-				7F0B46492A86A665005A27DD /* BreakingNews.xcdatamodeld */,
 			);
 			path = BreakingNews;
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 		7F0B46752A86AA35005A27DD /* CoreDataManager */ = {
 			isa = PBXGroup;
 			children = (
+				7F0B46492A86A665005A27DD /* BreakingNews.xcdatamodeld */,
 			);
 			path = CoreDataManager;
 			sourceTree = "<group>";
@@ -167,6 +171,8 @@
 		7F0B46762A86AA3D005A27DD /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7F0B467F2A86CBE1005A27DD /* UIImageView+Extension.swift */,
+				7F0B46812A86CC22005A27DD /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,9 +310,11 @@
 				7F0B467A2A86AB03005A27DD /* EndPoint.swift in Sources */,
 				7F0B467C2A86AB1A005A27DD /* ErrorMessage.swift in Sources */,
 				7F0B46782A86AA87005A27DD /* RequestManager.swift in Sources */,
+				7F0B46802A86CBE1005A27DD /* UIImageView+Extension.swift in Sources */,
 				7F0B46452A86A665005A27DD /* ViewController.swift in Sources */,
 				7F0B464B2A86A665005A27DD /* BreakingNews.xcdatamodeld in Sources */,
 				7F0B46412A86A665005A27DD /* AppDelegate.swift in Sources */,
+				7F0B46822A86CC22005A27DD /* UITableView+Extension.swift in Sources */,
 				7F0B467E2A86AB7E005A27DD /* API.swift in Sources */,
 				7F0B46432A86A665005A27DD /* SceneDelegate.swift in Sources */,
 			);
