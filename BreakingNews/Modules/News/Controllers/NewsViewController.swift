@@ -8,11 +8,14 @@
 import UIKit
 
 class NewsViewController: UIViewController {
-
+    var newsDetailsViewController: NewsDetailsViewController?
+    
     private let tableView :UITableView = {
         let tableView = UITableView()
         tableView.registerCell(tableViewCell: NewsTableViewCell.self)
         tableView.allowsSelection = true
+        tableView.separatorStyle = .none
+        
         return tableView
     }()
     
@@ -27,7 +30,6 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupNavigation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -35,13 +37,22 @@ class NewsViewController: UIViewController {
         tableView.frame = view.bounds
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigation()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     private func setupNavigation() {
         navigationItem.title = "BREAKING NEWS"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
         navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .label
     }
+    
     
     private func setupTableView() {
         view.addSubview(tableView)
@@ -70,5 +81,7 @@ extension NewsViewController: UITableViewDataSource {
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected")
+        newsDetailsViewController = NewsDetailsViewController()
+        navigationController?.pushViewController(newsDetailsViewController!, animated: true)
     }
 }

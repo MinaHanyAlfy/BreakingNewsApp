@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsDetailsViewController" customModule="BreakingNews" customModuleProvider="target">
+            <connections>
+                <outlet property="authorLabel" destination="qvM-Lz-0uY" id="DVa-8V-u72"/>
+                <outlet property="authorStackView" destination="wj7-ZO-kA0" id="jit-0n-b5Q"/>
+                <outlet property="contentLabel" destination="Jrv-Hh-PH5" id="uYg-o8-cUE"/>
+                <outlet property="descriptionLabel" destination="Oyk-FA-iEu" id="aog-nC-LJQ"/>
+                <outlet property="newsDateLabel" destination="yeA-N5-qWW" id="fKb-wH-wpU"/>
+                <outlet property="newsImageView" destination="bDS-3o-6UU" id="jtI-44-UoH"/>
+                <outlet property="scrollContentView" destination="KEU-b0-aW7" id="XW7-Rk-3ez"/>
+                <outlet property="scrollView" destination="5MA-lo-gir" id="JiX-4G-Bgh"/>
+                <outlet property="showArticalButton" destination="Joa-g6-Ufb" id="sA7-40-yfG"/>
+                <outlet property="sourceLabel" destination="agW-jI-GdR" id="Gcp-FI-Lma"/>
+                <outlet property="sourceStackView" destination="wgX-88-sdr" id="wpw-Qa-bRb"/>
+                <outlet property="titleLabel" destination="4GV-7H-YBX" id="QBJ-V7-QfQ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MA-lo-gir">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="1200"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEU-b0-aW7">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1050.3333333333333"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news" translatesAutoresizingMaskIntoConstraints="NO" id="bDS-3o-6UU">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="240"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="999" constant="240" id="iaY-lL-7UY"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GV-7H-YBX">
+                                    <rect key="frame" x="8" y="248" width="377" height="48"/>
+                                    <string key="text">News App Personalization
+</string>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wgX-88-sdr">
+                                    <rect key="frame" x="8" y="304" width="377" height="40"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gurdians" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agW-jI-GdR">
+                                            <rect key="frame" x="0.0" y="0.0" width="264" height="40"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2023-08-02" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeA-N5-qWW">
+                                            <rect key="frame" x="272" y="0.0" width="105" height="40"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="C4T-hz-Opm"/>
+                                        <constraint firstItem="agW-jI-GdR" firstAttribute="width" secondItem="wgX-88-sdr" secondAttribute="width" multiplier="0.7" id="KqA-xo-uw7"/>
+                                        <constraint firstAttribute="height" constant="40" id="sqV-KW-MWb"/>
+                                    </constraints>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-FA-iEu">
+                                    <rect key="frame" x="8" y="357" width="377" height="76.666666666666686"/>
+                                    <string key="text">News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FrX-4K-Zex" userLabel="sperator">
+                                    <rect key="frame" x="8" y="348" width="377" height="1"/>
+                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="0lk-C0-LrN"/>
+                                    </constraints>
+                                </view>
+                                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-g2-06d" userLabel="sperator">
+                                    <rect key="frame" x="8" y="441.66666666666669" width="377" height="1"/>
+                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="aqe-4Y-qDc"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrv-Hh-PH5">
+                                    <rect key="frame" x="8" y="450.66666666666669" width="377" height="515.66666666666652"/>
+                                    <mutableString key="text">News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.</mutableString>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="wj7-ZO-kA0">
+                                    <rect key="frame" x="8" y="982.33333333333337" width="377" height="48.000000000000114"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mina Hanna" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qvM-Lz-0uY">
+                                            <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="48"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Joa-g6-Ufb">
+                                            <rect key="frame" x="192.66666666666663" y="0.0" width="184.33333333333337" height="48"/>
+                                            <color key="backgroundColor" red="1" green="0.35939042870296556" blue="0.4382499276482108" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="tintColor" systemColor="labelColor"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" imagePlacement="trailing" title="Show Full Artical " subtitle="" imagePadding="8">
+                                                <imageReference key="image" image="arrow.right.circle.fill" catalog="system" symbolScale="small"/>
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                                <color key="baseForegroundColor" systemColor="labelColor"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="showArticalAction:" destination="-1" eventType="touchUpInside" id="SXI-eh-95U"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="auT-hW-7tH"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="wgX-88-sdr" secondAttribute="trailing" constant="8" id="1jI-v0-MxV"/>
+                                <constraint firstAttribute="trailing" secondItem="FrX-4K-Zex" secondAttribute="trailing" constant="8" id="3cG-nR-bNn"/>
+                                <constraint firstItem="Jrv-Hh-PH5" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="3wA-2u-zyu"/>
+                                <constraint firstItem="wj7-ZO-kA0" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="427-Z4-6cu"/>
+                                <constraint firstAttribute="trailing" secondItem="bDS-3o-6UU" secondAttribute="trailing" id="6En-qn-yL2"/>
+                                <constraint firstItem="wgX-88-sdr" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="6OZ-xz-2X3"/>
+                                <constraint firstItem="Jrv-Hh-PH5" firstAttribute="top" secondItem="Cc5-g2-06d" secondAttribute="bottom" constant="8" id="79y-cV-Dka"/>
+                                <constraint firstItem="4GV-7H-YBX" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="7id-ru-U37"/>
+                                <constraint firstItem="bDS-3o-6UU" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" id="8Ot-Rg-xdV"/>
+                                <constraint firstItem="4GV-7H-YBX" firstAttribute="top" secondItem="bDS-3o-6UU" secondAttribute="bottom" constant="8" id="96g-SN-M4E"/>
+                                <constraint firstAttribute="trailing" secondItem="wj7-ZO-kA0" secondAttribute="trailing" constant="8" id="Gaq-fI-any"/>
+                                <constraint firstItem="FrX-4K-Zex" firstAttribute="top" secondItem="wgX-88-sdr" secondAttribute="bottom" constant="4" id="HOw-PJ-xqO"/>
+                                <constraint firstAttribute="trailing" secondItem="4GV-7H-YBX" secondAttribute="trailing" constant="8" id="Omm-0t-b1G"/>
+                                <constraint firstItem="Cc5-g2-06d" firstAttribute="top" secondItem="Oyk-FA-iEu" secondAttribute="bottom" constant="8" id="PNk-af-dNr"/>
+                                <constraint firstItem="Oyk-FA-iEu" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="TcC-oc-75N"/>
+                                <constraint firstItem="FrX-4K-Zex" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="V3t-JB-r6e"/>
+                                <constraint firstItem="Cc5-g2-06d" firstAttribute="leading" secondItem="KEU-b0-aW7" secondAttribute="leading" constant="8" id="W3Q-pW-tci"/>
+                                <constraint firstItem="wgX-88-sdr" firstAttribute="top" secondItem="4GV-7H-YBX" secondAttribute="bottom" constant="8" id="Zqo-Fm-zeN"/>
+                                <constraint firstAttribute="trailing" secondItem="Cc5-g2-06d" secondAttribute="trailing" constant="8" id="jDM-et-3wg"/>
+                                <constraint firstItem="wj7-ZO-kA0" firstAttribute="top" secondItem="Jrv-Hh-PH5" secondAttribute="bottom" constant="16" id="kcI-FR-b47"/>
+                                <constraint firstItem="Oyk-FA-iEu" firstAttribute="top" secondItem="FrX-4K-Zex" secondAttribute="bottom" constant="8" id="qe7-vw-fTP"/>
+                                <constraint firstAttribute="trailing" secondItem="Oyk-FA-iEu" secondAttribute="trailing" constant="8" id="rAR-jx-6Mx"/>
+                                <constraint firstAttribute="trailing" secondItem="Jrv-Hh-PH5" secondAttribute="trailing" constant="8" id="rwl-5z-ruz"/>
+                                <constraint firstAttribute="bottom" secondItem="wj7-ZO-kA0" secondAttribute="bottom" constant="20" id="sHD-wY-UHt"/>
+                                <constraint firstItem="bDS-3o-6UU" firstAttribute="top" secondItem="KEU-b0-aW7" secondAttribute="top" id="tzB-Dm-ZMo"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="KEU-b0-aW7" firstAttribute="width" secondItem="IQs-Wr-eTy" secondAttribute="width" id="2jN-qI-H9d"/>
+                        <constraint firstItem="KEU-b0-aW7" firstAttribute="top" secondItem="1T2-2I-eXN" secondAttribute="top" id="3Ct-8r-eJX"/>
+                        <constraint firstItem="KEU-b0-aW7" firstAttribute="trailing" secondItem="1T2-2I-eXN" secondAttribute="trailing" id="687-IE-8wp"/>
+                        <constraint firstItem="KEU-b0-aW7" firstAttribute="leading" secondItem="1T2-2I-eXN" secondAttribute="leading" id="X16-87-okg"/>
+                        <constraint firstItem="KEU-b0-aW7" firstAttribute="bottom" secondItem="1T2-2I-eXN" secondAttribute="bottom" id="z6z-xd-74s"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="1T2-2I-eXN"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="IQs-Wr-eTy"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="5MA-lo-gir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="7oY-gS-zYl"/>
+                <constraint firstAttribute="trailing" secondItem="5MA-lo-gir" secondAttribute="trailing" id="F29-gw-KXd"/>
+                <constraint firstAttribute="bottom" secondItem="5MA-lo-gir" secondAttribute="bottom" id="Qf1-kc-NyL"/>
+                <constraint firstItem="5MA-lo-gir" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" id="Uo7-Bv-mpU"/>
+                <constraint firstItem="5MA-lo-gir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZMZ-G6-d1G"/>
+                <constraint firstItem="5MA-lo-gir" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="iNR-Ic-FsW"/>
+                <constraint firstItem="5MA-lo-gir" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s9J-IJ-VSp"/>
+                <constraint firstItem="5MA-lo-gir" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tUJ-Ek-gfm"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="0.76335877862595414" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow.right.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="news" width="100" height="56"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

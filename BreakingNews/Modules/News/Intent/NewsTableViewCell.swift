@@ -19,6 +19,18 @@ class NewsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        mainView.clipsToBounds = true
+        mainView.layer.cornerRadius = 8
+        newsImageView.layer.cornerRadius = 8
+        newsImageView.clipsToBounds = true
+        mainView.layer.borderWidth = 0.5
+        mainView.layer.borderColor = UIColor.label.cgColor
+//        mainView.layer.shadowOffset =
+        mainView.layer.shadowOffset = CGSize(width: 2, height: 2)
+        mainView.layer.shadowOpacity = 0.5
+        mainView.layer.shadowColor = UIColor.gray.cgColor
+        
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
