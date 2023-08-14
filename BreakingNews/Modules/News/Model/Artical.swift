@@ -9,10 +9,18 @@ import Foundation
 
 // MARK: - Article
 struct Article: Decodable {
-    let source: Source?
-    let author, title, description: String?
-    let url: String?
-    let urlToImage: String?
-    let publishedAt: Date?
-    let content: String?
+    var source: Source?
+    var author: String? = ""
+    var title: String? = ""
+    var description: String? = ""
+    var url: String? = ""
+    var urlToImage: String? = ""
+    var publishedAt: String? = ""
+    var content: String? = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case source, title, description
+        case author, url
+        case urlToImage, publishedAt, content
+    }
 }

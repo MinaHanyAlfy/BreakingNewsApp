@@ -9,9 +9,16 @@ import Foundation
 
 // MARK: - News
 struct News: Decodable {
-    let status, code, message: String?
-    let totalResults: Int?
-    let articles: [Article]?
+    var status: String? = ""
+    var code: String? = ""
+    var message: String? = ""
+    var totalResults: Int? = 0
+    var articles: [Article]? = []
+    
+    enum CodingKeys: String, CodingKey {
+        case status, code, message
+        case totalResults, articles
+        
+    }
+    
 }
-
-

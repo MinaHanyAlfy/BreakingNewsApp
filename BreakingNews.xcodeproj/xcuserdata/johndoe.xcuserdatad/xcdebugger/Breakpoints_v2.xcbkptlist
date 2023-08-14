@@ -3,4 +3,54 @@
    uuid = "EED7358F-1144-44E7-AB04-A871ECDE34A3"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "007794C2-6EA0-4D4C-846F-440B1D10BE14"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BreakingNews/Modules/News/Controllers/NewsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "fetchSuccess()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "007794C2-6EA0-4D4C-846F-440B1D10BE14 - d061fe050ee4ab13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BreakingNews.NewsViewController.fetchSuccess() -&gt; ()"
+                  moduleName = "BreakingNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johndoe/Documents/iOS/BreakingNews/BreakingNews/Modules/News/Controllers/NewsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "007794C2-6EA0-4D4C-846F-440B1D10BE14 - d061fe050ee4ab13"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BreakingNews.NewsViewController.fetchSuccess() -&gt; ()"
+                  moduleName = "BreakingNews"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/johndoe/Documents/iOS/BreakingNews/BreakingNews/Modules/News/Controllers/NewsViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

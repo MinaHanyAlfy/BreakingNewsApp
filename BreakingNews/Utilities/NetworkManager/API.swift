@@ -35,7 +35,7 @@ extension API: EndPoint {
             return [
                 URLQueryItem(name: "q", value: "everything"),
                 URLQueryItem(name: "page", value: "\(pageNumber)"),
-                URLQueryItem(name: "pageSize", value: "50"),
+                URLQueryItem(name: "pageSize", value: "10"),
                 URLQueryItem(name: "sortBy", value: "publishedAt"),
                 URLQueryItem(name: "language", value: langDeviceCode),
                 URLQueryItem(name: "apiKey", value: "8e5161eb2e744e4ab03c255267d94f75")
@@ -46,7 +46,7 @@ extension API: EndPoint {
                 URLQueryItem(name: "q", value: query),
                 URLQueryItem(name: "sortBy", value: "publishedAt"),
                 URLQueryItem(name: "page", value: "\(pageNumber)"),
-                URLQueryItem(name: "pageSize", value: "50"),
+                URLQueryItem(name: "pageSize", value: "10"),
                 URLQueryItem(name: "sortBy", value: "publishedAt"),
                 URLQueryItem(name: "language", value: langDeviceCode),
                 URLQueryItem(name: "apiKey", value: "8e5161eb2e744e4ab03c255267d94f75")

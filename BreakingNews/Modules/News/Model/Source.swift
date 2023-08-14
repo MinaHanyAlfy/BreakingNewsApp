@@ -9,6 +9,10 @@ import Foundation
 
 // MARK: - Source
 struct Source: Decodable {
-    let id: String?
-    let name: String?
+    var id: String?
+    var name: String? = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case id, name
+    }
 }

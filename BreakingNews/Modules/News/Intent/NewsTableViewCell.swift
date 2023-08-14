@@ -23,17 +23,24 @@ class NewsTableViewCell: UITableViewCell {
         mainView.layer.cornerRadius = 8
         newsImageView.layer.cornerRadius = 8
         newsImageView.clipsToBounds = true
-        mainView.layer.borderWidth = 0.5
-        mainView.layer.borderColor = UIColor.label.cgColor
-//        mainView.layer.shadowOffset =
-        mainView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        mainView.layer.shadowOpacity = 0.5
-        mainView.layer.shadowColor = UIColor.gray.cgColor
-        
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func config(article: Article) {
+        newsImageView.loadImageUsingCacheWithURLString(article.urlToImage ?? "", placeHolder: UIImage(named: "news"))
+
+        newsTitleLabel.text = article.title ?? "NO TITLE"
+        newsSourceLabel.text = article.source?.name ?? "NO SOURCE"
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        newsImageView.image = UIImage(named: "news")
+        newsTitleLabel.text = ""
+        newsSourceLabel.text = ""
+        
     }
 }
