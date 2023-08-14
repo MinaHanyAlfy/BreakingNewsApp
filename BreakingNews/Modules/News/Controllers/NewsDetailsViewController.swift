@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import SafariServices
 
 class NewsDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
@@ -22,17 +23,32 @@ class NewsDetailsViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var showArticalButton: UIButton!
     
+    var viewModel: NewsViewModelProtocol?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        showArticalButton.layer.cornerRadius = 18        
+        
     }
 
     @IBAction func showArticalAction(_ sender: Any) {
-        
+        guard let url = URL(string: viewModel?.articleUrl() ?? "") else { return }
+        let sfVc = SFSafariViewController(url: url)
+        navigationController?.present(sfVc, animated: true)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)        
+        super.viewWillAppear(animated)
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        newsImageView.loadImageUsingCacheWithURLString(viewModel.articleImage(), placeHolder: UIImage(named: "news"))
+        authorLabel.text = viewModel.articleAuthor()
+        sourceLabel.text = viewModel.articleSourceName()
+        contentLabel.text = viewModel.articleContent()
+        descriptionLabel.text = viewModel.articleDescription()
+        newsDateLabel.text = viewModel.articleDate()
+        titleLabel.text = viewModel.articleTitle()
+        showArticalButton.layer.cornerRadius = 18
     }
-  
+    
 }

@@ -10,7 +10,8 @@ import Combine
 
 class NewsViewController: UIViewController {
     
-    var newsDetailsViewController: NewsDetailsViewController?
+    lazy var newsDetailsViewController: NewsDetailsViewController = NewsDetailsViewController()
+    
     private var cancellabels = Set<AnyCancellable>()
     
     private var viewModel: NewsViewModelProtocol!
@@ -19,25 +20,18 @@ class NewsViewController: UIViewController {
         tableView.registerCell(tableViewCell: NewsTableViewCell.self)
         tableView.allowsSelection = true
         tableView.separatorStyle = .none
-//        tableView.dele
         return tableView
     }()
     
-    private let searchController : UISearchController = {
-        let searchResultViewController = SearchResultViewController()
-        let controller = UISearchController(searchResultsController: searchResultViewController)
-        controller.searchBar.placeholder = "Search for BREAKING NEWS..."
-        controller.searchBar.searchBarStyle = .minimal
-        return controller
-    }()
+    private var searchBar: UISearchBar?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = NewsViewModel()
         viewModel.process(intent: .loadNews(pageNumber: 1))
         bindData()
+        configureNavBar()
         setupTableView()
-        setupNavigation()
     }
     
     override func viewDidLayoutSubviews() {
@@ -57,10 +51,22 @@ class NewsViewController: UIViewController {
         navigationItem.title = "BREAKING NEWS"
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationItem.largeTitleDisplayMode = .never
-        navigationItem.searchController = searchController
         navigationController?.navigationBar.tintColor = .label
     }
     
+    func configureNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationItem.largeTitleDisplayMode = .never
+        navigationItem.titleView?.backgroundColor = .systemBackground
+        navigationItem.titleView?.tintColor = .label
+        navigationController?.navigationBar.backgroundColor = .systemBackground
+        searchBar = UISearchBar()
+        searchBar?.delegate = self
+        searchBar?.tintColor = .label
+        navigationItem.titleView = searchBar
+        searchBar?.placeholder = "Search for BREAKING NEWS..."
+        searchBar?.backgroundColor = .systemBackground
+    }
     
     private func setupTableView() {
         view.addSubview(tableView)
@@ -84,13 +90,13 @@ class NewsViewController: UIViewController {
 //MARK: - UITableViewDataSource -
 extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.articals.count
+        return viewModel.articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(tableViewCell: NewsTableViewCell.self , forIndexPath: indexPath)
         let index = indexPath.row
-        cell.config(article: viewModel.articals[index])
+        cell.config(article: viewModel.articles[index])
         return cell
         
     }
@@ -98,9 +104,10 @@ extension NewsViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate -
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected")
-        newsDetailsViewController = NewsDetailsViewController()
-        navigationController?.pushViewController(newsDetailsViewController!, animated: true)
+        let index = indexPath.row
+        viewModel.process(intent: .selectedNews(index: index))
+        newsDetailsViewController.viewModel = viewModel
+        navigationController?.pushViewController(newsDetailsViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -131,3 +138,15 @@ extension NewsViewController {
             .store(in: &cancellabels)
     }
 }
+
+//MARK: - UISearchBarDelegate -
+extension NewsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let query = searchText.lowercased()
+        if !query.trimmingCharacters(in: .whitespaces).isEmpty,
+             query.trimmingCharacters(in: .whitespaces).count >= 3 {
+            viewModel.process(intent: .loadSpecificNews(query: query))
+          }
+    }
+}
+

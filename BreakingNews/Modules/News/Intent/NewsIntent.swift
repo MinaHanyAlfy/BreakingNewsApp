@@ -9,7 +9,7 @@ import Foundation
 
 enum NewsIntent {
     case loadNews(pageNumber: Int)
-    case loadSpecificNews
+    case loadSpecificNews(query: String, pageNumber: Int? = 1)
     case selectedNews(index: Int)
 }
 

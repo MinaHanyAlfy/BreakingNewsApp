@@ -36,6 +36,13 @@ class NewsTableViewCell: UITableViewCell {
         newsSourceLabel.text = article.source?.name ?? "NO SOURCE"
     }
     
+    func config(articleImage: String, articleTitle: String, articleSourceName: String) {
+        newsImageView.loadImageUsingCacheWithURLString(articleImage, placeHolder: UIImage(named: "news"))
+
+        newsTitleLabel.text = articleTitle
+        newsSourceLabel.text = articleSourceName
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         newsImageView.image = UIImage(named: "news")
