@@ -9,7 +9,8 @@ import UIKit
 import SafariServices
 
 class NewsDetailsViewController: UIViewController {
-    
+    let langDeviceCode = Locale.current.languageCode ?? "en"
+
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
@@ -27,7 +28,7 @@ class NewsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       handleViewsLocalization()
     }
 
     @IBAction func showArticalAction(_ sender: Any) {
@@ -51,4 +52,18 @@ class NewsDetailsViewController: UIViewController {
         showArticalButton.layer.cornerRadius = 18
     }
     
+    private func handleViewsLocalization() {
+        titleLabel.text = "Title".localizeString(string: langDeviceCode)
+        sourceLabel.text = "Source".localizeString(string: langDeviceCode)
+        newsDateLabel.text = "Date".localizeString(string: langDeviceCode)
+        descriptionLabel.text = "Description".localizeString(string: langDeviceCode)
+        contentLabel.text = "Content".localizeString(string: langDeviceCode)
+        authorLabel.text = "Author".localizeString(string: langDeviceCode)
+        showArticalButton.setTitle("Show Full Article".localizeString(string: langDeviceCode), for: .normal)
+        if langDeviceCode == "ar" {
+            showArticalButton.setImage(UIImage(systemName: "arrow.left.circle.fill"), for: .normal)
+        } else {
+            showArticalButton.setImage(UIImage(systemName: "arrow.right.circle.fill"), for: .normal)
+        }
+    }
 }

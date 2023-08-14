@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  BreakingNews
+
+  Created by Mina Hanna on 2023-08-14.
+  
+*/
+
+"Title" = "العنوان";
+"Content" = "المحتوي";
+"Description" = "الوصف";
+"Source" = "المصدر";
+"Author" = "الكاتب";
+"Show Full Article" = "شاهد المقال كاملا" ;
+"Date" = "التاريخ";
+
+"Sorry ,Something went wrong try agian." = "نأسف, هناك خطأ ما";
+"Sorry ,This url isn't good enough ,Try agian later." = "نأسف,هناك مشكله في قاعدة البيانات المراد الوصول اليها";
+"Server Error ,Modify your search and try agian." = "هناك خطأ في البحث, قم بتغير البحث";
+"Search for BREAKING NEWS..." = "ابحث عن الاخبار العاجلة";
+"Alert" = "تحذير";
+"Ok" = "حسنا";

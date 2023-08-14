@@ -1,0 +1,21 @@
+/* 
+  Localizable.strings
+  BreakingNews
+
+  Created by Mina Hanna on 2023-08-14.
+  
+*/
+"Title" = "Title";
+"Content" = "Content";
+"Description" = "Description";
+"Source" = "Source";
+"Author" = "Author";
+"Show Full Article" = "Show Full Article";
+"Date" = "Date";
+
+"Sorry ,Something went wrong try agian." = "Sorry ,Something went wrong try agian.";
+"Sorry ,This url isn't good enough ,Try agian later." = "Sorry ,This url isn't good enough ,Try agian later.";
+"Server Error ,Modify your search and try agian." = "Server Error ,Modify your search and try agian.";
+"Search for BREAKING NEWS..." = "Search for BREAKING NEWS...";
+"Alert" = "Alert";
+"Ok" = "Ok";

@@ -13,7 +13,8 @@ class NewsViewController: UIViewController {
     lazy var newsDetailsViewController: NewsDetailsViewController = NewsDetailsViewController()
     
     private var cancellabels = Set<AnyCancellable>()
-    
+    let langDeviceCode = Locale.current.languageCode ?? "en"
+
     private var viewModel: NewsViewModelProtocol!
     private let tableView :UITableView = {
         let tableView = UITableView()
@@ -47,13 +48,6 @@ class NewsViewController: UIViewController {
         super.viewWillDisappear(animated)
     }
     
-    private func setupNavigation() {
-        navigationItem.title = "BREAKING NEWS"
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.navigationBar.tintColor = .label
-    }
-    
     func configureNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationItem.largeTitleDisplayMode = .never
@@ -64,7 +58,7 @@ class NewsViewController: UIViewController {
         searchBar?.delegate = self
         searchBar?.tintColor = .label
         navigationItem.titleView = searchBar
-        searchBar?.placeholder = "Search for BREAKING NEWS..."
+        searchBar?.placeholder = "Search for BREAKING NEWS...".localizeString(string: langDeviceCode)
         searchBar?.backgroundColor = .systemBackground
     }
     
@@ -77,8 +71,8 @@ class NewsViewController: UIViewController {
     }
     
     private func showAlert(message: String) {
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+        let alert = UIAlertController(title: "Alert".localizeString(string: langDeviceCode), message: message.localizeString(string: langDeviceCode), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok".localizeString(string: langDeviceCode), style: .cancel))
         navigationController?.present(alert, animated: true)
     }
     
@@ -96,6 +90,7 @@ extension NewsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(tableViewCell: NewsTableViewCell.self , forIndexPath: indexPath)
         let index = indexPath.row
+        
         cell.config(article: viewModel.articles[index])
         return cell
         

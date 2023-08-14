@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "News App Personalization\n"; ObjectID = "4GV-7H-YBX"; */
+"4GV-7H-YBX.text" = "Title";
+
+/* Class = "UIButton"; configuration.title = "Show Full Artical "; ObjectID = "Joa-g6-Ufb"; */
+"Joa-g6-Ufb.configuration.title" = "Show Full Article";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Joa-g6-Ufb"; */
+"Joa-g6-Ufb.normalTitle" = "Show Full Article";
+
+/* Class = "UILabel"; text = "News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals.News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals. News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals."; ObjectID = "Jrv-Hh-PH5"; */
+"Jrv-Hh-PH5.text" = "Description";
+
+/* Class = "UILabel"; text = "News App Personalization designed by Merahburam Studio. Connect with them on Dribbble; the global community for designers and creative professionals."; ObjectID = "Oyk-FA-iEu"; */
+"Oyk-FA-iEu.text" = "Content";
+
+/* Class = "UILabel"; text = "Gurdians"; ObjectID = "agW-jI-GdR"; */
+"agW-jI-GdR.text" = "Source";
+
+/* Class = "UILabel"; text = "Mina Hanna"; ObjectID = "qvM-Lz-0uY"; */
+"qvM-Lz-0uY.text" = "Author";
+
+/* Class = "UILabel"; text = "2023-08-02"; ObjectID = "yeA-N5-qWW"; */
+"yeA-N5-qWW.text" = "Date";
