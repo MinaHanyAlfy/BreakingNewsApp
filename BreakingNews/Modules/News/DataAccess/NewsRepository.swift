@@ -38,15 +38,15 @@ class NewsRepository: NewsRepositoryProtocol {
                         self.coredate.clearArticles()
                         self.coredate.saveArticles(articles: news.articles ?? [])
                     }
-    //                subject.send(self.coredate.getArticles())
-    //                self.coredate.saveArticles(articles: news.articles ?? [])
+                    //                subject.send(self.coredate.getArticles())
+                    //                self.coredate.saveArticles(articles: news.articles ?? [])
                 })
                 .store(in: &cancellabels)
             print("Connected")
             return publisher
         } else {
             print("NOT Connected")
-        return Just(coredate.getArticles())
+            return Just(coredate.getArticles())
                 .setFailureType(to: ErrorMessage.self)
                 .eraseToAnyPublisher()
         }

@@ -141,6 +141,5 @@ class NewsViewModel: NewsViewModelProtocol {
         }
         return ""
     }
-    
 }
-    
+

@@ -25,22 +25,22 @@ class ZeroStateView: UIView {
     
     
     override init(frame: CGRect) {
-           super.init(frame: frame)
-           setupSubviews()
-       }
-       
-       required init?(coder aDecoder: NSCoder) {
-           super.init(coder: aDecoder)
-           setupSubviews()
-       }
+        super.init(frame: frame)
+        setupSubviews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupSubviews()
+    }
     
     private func setupSubviews() {
-            addSubview(messageLabel)
-            messageLabel.translatesAutoresizingMaskIntoConstraints = false
-            NSLayoutConstraint.activate([
-                messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-                messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-                messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
-            ])
-        }
+        addSubview(messageLabel)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            messageLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            messageLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            messageLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ])
+    }
 }
