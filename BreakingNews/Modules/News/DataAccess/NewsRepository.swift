@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import CoreData
+
 
 protocol NewsRepositoryProtocol {
     func getNews() -> AnyPublisher<[Article], ErrorMessage>
@@ -15,7 +17,7 @@ protocol NewsRepositoryProtocol {
 
 class NewsRepository: NewsRepositoryProtocol {
     private var cancellabels = Set<AnyCancellable>()
-    
+    private let coredate = CoreDataManager.shared
     func getNews() -> AnyPublisher<[Article], ErrorMessage> {
         
         let subject = PassthroughSubject<[Article], ErrorMessage>()
@@ -28,7 +30,12 @@ class NewsRepository: NewsRepositoryProtocol {
                 }
             },receiveValue: { news in
                 subject.send(news.articles ?? [])
-                
+                if news.articles?.count ?? 0 > 0  {
+                    self.coredate.clearArticles()
+                    self.coredate.saveArticles(articles: news.articles ?? [])
+                }
+//                subject.send(self.coredate.getArticles())
+//                self.coredate.saveArticles(articles: news.articles ?? [])
             })
             .store(in: &cancellabels)
         return publisher
