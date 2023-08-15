@@ -9,7 +9,6 @@ import UIKit
 import SafariServices
 
 class NewsDetailsViewController: UIViewController {
-    let langDeviceCode = Locale.current.languageCode ?? "en"
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
@@ -24,13 +23,14 @@ class NewsDetailsViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var showArticalButton: UIButton!
     
+    let langDeviceCode = Locale.current.languageCode ?? "en"
     var viewModel: NewsViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
        handleViewsLocalization()
     }
-
+    
     @IBAction func showArticalAction(_ sender: Any) {
         guard let url = URL(string: viewModel?.articleUrl() ?? "") else { return }
         let sfVc = SFSafariViewController(url: url)

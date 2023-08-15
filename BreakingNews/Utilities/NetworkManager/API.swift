@@ -8,8 +8,8 @@
 import Foundation
 
 enum API {
-    case getNews(pageNumber: Int)
-    case getSpecificNews(query: String, pageNumber: Int)
+    case getNews
+    case getSpecificNews(query: String)
 }
 
 extension API: EndPoint {
@@ -31,25 +31,20 @@ extension API: EndPoint {
         let langDeviceCode = Locale.current.languageCode
         
         switch self {
-        case .getNews(let pageNumber):
+        case .getNews:
             return [
                 URLQueryItem(name: "q", value: "everything"),
-                URLQueryItem(name: "page", value: "\(pageNumber)"),
-                URLQueryItem(name: "pageSize", value: "10"),
                 URLQueryItem(name: "sortBy", value: "publishedAt"),
                 URLQueryItem(name: "language", value: langDeviceCode),
-                URLQueryItem(name: "apiKey", value: "8e5161eb2e744e4ab03c255267d94f75")
+                URLQueryItem(name: "apiKey", value: "95cf1749f95b4b938f5bb3aaf284ef4a")
             ]
             
-        case .getSpecificNews(let query, let pageNumber):
+        case .getSpecificNews(let query):
             return [
                 URLQueryItem(name: "q", value: query),
                 URLQueryItem(name: "sortBy", value: "publishedAt"),
-                URLQueryItem(name: "page", value: "\(pageNumber)"),
-                URLQueryItem(name: "pageSize", value: "10"),
-                URLQueryItem(name: "sortBy", value: "publishedAt"),
                 URLQueryItem(name: "language", value: langDeviceCode),
-                URLQueryItem(name: "apiKey", value: "8e5161eb2e744e4ab03c255267d94f75")
+                URLQueryItem(name: "apiKey", value: "95cf1749f95b4b938f5bb3aaf284ef4a")
             ]
         }
     }

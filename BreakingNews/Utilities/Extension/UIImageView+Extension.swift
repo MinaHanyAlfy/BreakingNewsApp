@@ -27,6 +27,10 @@ extension UIImageView {
     ///   - placeHolder: Image For No Response or Wrong Response
     func loadImageUsingCacheWithURLString(_ URLString: String, placeHolder: UIImage?) {
         self.image = nil
+        if URLString == "" {
+            self.image = placeHolder
+            return
+        }
         if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
             self.image = cachedImage
             return

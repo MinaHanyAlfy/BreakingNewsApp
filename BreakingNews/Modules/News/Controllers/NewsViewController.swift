@@ -29,7 +29,7 @@ class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = NewsViewModel()
-        viewModel.process(intent: .loadNews(pageNumber: 1))
+        viewModel.process(intent: .loadNews)
         bindData()
         configureNavBar()
         setupTableView()
@@ -104,11 +104,6 @@ extension NewsViewController: UITableViewDelegate {
         newsDetailsViewController.viewModel = viewModel
         navigationController?.pushViewController(newsDetailsViewController, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        viewModel.position(index: index)
-    }
 }
 
 //MARK: - For Binding Data -
@@ -139,9 +134,13 @@ extension NewsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let query = searchText.lowercased()
         if !query.trimmingCharacters(in: .whitespaces).isEmpty,
-             query.trimmingCharacters(in: .whitespaces).count >= 3 {
+           query.trimmingCharacters(in: .whitespaces).count >= 3 {
             viewModel.process(intent: .loadSpecificNews(query: query))
-          }
-    }
+        }
+        
+        if query.isEmpty {
+            viewModel.process(intent: .loadNews)
+        }
+    }    
 }
 

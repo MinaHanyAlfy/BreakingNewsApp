@@ -14,10 +14,8 @@ protocol NewsViewModelProtocol {
     
     var selectedArticle: Article? {set get}
     var articles: [Article] {set get}
-    var pageNumber: Int {set get}
     
     func process(intent: NewsIntent)
-    func position(index: Int)
     
     func articleTitle() -> String
     func articleSourceName() -> String
@@ -39,15 +37,7 @@ class NewsViewModel: NewsViewModelProtocol {
     var newsSuccessPublisher: Published<Bool?>.Publisher {$newsDataSuccess}
     
     @Published var articles: [Article] = []
-    
-    
-    
-    
     var query: String = ""
-    var pageNumber: Int = 1
-    var count = 0
-    var diff = 0
-    
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -60,15 +50,10 @@ class NewsViewModel: NewsViewModelProtocol {
     
     func process(intent: NewsIntent) {
         switch intent {
-        case .loadNews(let pageNumber):
-            getNews(pageNumber: pageNumber)
-        case .loadSpecificNews(let query, let pageNumber):
-            repo.articles = []
-            repo.loadMore = true
-            repo.firstCall = true
-            
-            getSpecificNews(query: query,pageNumber: pageNumber)
-            
+        case .loadNews:
+            getNews()
+        case .loadSpecificNews(let query):
+            getSpecificNews(query: query)
         case .selectedNews(let index):
             self.selectedArticle = articles[index]
             return
@@ -76,8 +61,7 @@ class NewsViewModel: NewsViewModelProtocol {
     }
     
     func getNews(pageNumber: Int? = 1) {
-        self.pageNumber = pageNumber ?? 1
-        repo.getNews(pageNumber: self.pageNumber)
+        repo.getNews()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
@@ -89,12 +73,11 @@ class NewsViewModel: NewsViewModelProtocol {
             })
             .store(in: &cancellabels)
     }
+    
     
     func getSpecificNews(query: String, pageNumber: Int? = 1) {
-        
-        self.pageNumber = pageNumber ?? 1
         self.query = query
-        repo.getSpecificNews(query: query, pageNumber: self.pageNumber)
+        repo.getSpecificNews(query: query)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
@@ -103,23 +86,8 @@ class NewsViewModel: NewsViewModelProtocol {
             }, receiveValue: { [weak self] data in
                 self?.articles = data
                 self?.newsDataSuccess = true
-                
             })
             .store(in: &cancellabels)
-    }
-    
-    func position(index: Int) {
-        if index == articles.count - 1 {
-            count = articles.count - 1
-            diff = abs(count - index)
-            if diff == 0 {
-                pageNumber += 1
-                if query != "" {
-                    process(intent: .loadSpecificNews(query: query,pageNumber: pageNumber))
-                }
-                process(intent: .loadNews(pageNumber: pageNumber))
-            }
-        }
     }
     
     func articleTitle() -> String {
@@ -173,6 +141,6 @@ class NewsViewModel: NewsViewModelProtocol {
         }
         return ""
     }
-
     
 }
+    
