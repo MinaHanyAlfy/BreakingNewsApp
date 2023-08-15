@@ -10,13 +10,19 @@ import CoreData
 
 class CoreDataManager {
     static let shared = CoreDataManager()
+    private var context: NSManagedObjectContext?
+    
+    func mgContext() ->  NSManagedObjectContext {
+        let context = appDelegate().persistentContainer.viewContext
+        return context
+    }
+    
+    init() {
+        self.context = mgContext()
+    }
     
     func appDelegate() -> AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
-    }
-    func context() ->  NSManagedObjectContext {
-        let context = appDelegate().persistentContainer.viewContext
-        return context
     }
     
     func save() {
@@ -24,12 +30,12 @@ class CoreDataManager {
     }
     
 }
-//MARK: - Save Articles -
+//MARK: - Save, Clear And GET Articles -
 extension CoreDataManager {
     func saveArticles(articles: [Article]) {
         for article in articles {
-            let articleCD = ArticleCD(context: context())
-            let sourceCD = SourceCD(context: context())
+            let articleCD = ArticleCD(context: context!)
+            let sourceCD = SourceCD(context: context!)
             articleCD.title = article.title
             articleCD.desc = article.description
             articleCD.content = article.content
@@ -42,7 +48,7 @@ extension CoreDataManager {
             articleCD.source = sourceCD
 
             do {
-                try context().save()
+                try context?.save()
                 print("✅ Success")
             } catch let error as NSError {
                 print(error)
@@ -51,24 +57,22 @@ extension CoreDataManager {
     }
     
     func clearArticles() {
-        let context = context()
-        let fetchRequest: NSFetchRequest<ArticleCD> = ArticleCD.fetchRequest()
-        let objects = try! context.fetch(fetchRequest)
+        let fetchRequest = ArticleCD.fetchRequest()
+        let objects = try! context!.fetch(fetchRequest)
         for obj in objects {
-            context.delete(obj)
+            context!.delete(obj)
         }
         
         do {
-            try context.save()
+            try context!.save()
         } catch {
             print("❌ Error Delete Object")
         }
     }
     
     func getArticles() -> [Article] {
-        let context = context()
-        let fetchRequest: NSFetchRequest<ArticleCD> = ArticleCD.fetchRequest()
-        let objects = try! context.fetch(fetchRequest)
+        let fetchRequest = ArticleCD.fetchRequest()
+        let objects = try! context!.fetch(fetchRequest)
         var articles: [Article] = []
         for objc in objects {
             let article = Article(source: Source(id: objc.source?.id, name: objc.source?.name), author: objc.author, title: objc.title, description: objc.desc, url: objc.url, urlToImage: objc.urlToImage, publishedAt: objc.publishedAt, content: objc.content)

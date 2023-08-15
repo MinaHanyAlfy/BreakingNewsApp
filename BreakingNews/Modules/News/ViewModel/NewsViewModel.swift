@@ -60,7 +60,7 @@ class NewsViewModel: NewsViewModelProtocol {
         }
     }
     
-    func getNews(pageNumber: Int? = 1) {
+    func getNews() {
         repo.getNews()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
@@ -75,7 +75,7 @@ class NewsViewModel: NewsViewModelProtocol {
     }
     
     
-    func getSpecificNews(query: String, pageNumber: Int? = 1) {
+    func getSpecificNews(query: String) {
         self.query = query
         repo.getSpecificNews(query: query)
             .receive(on: DispatchQueue.main)
