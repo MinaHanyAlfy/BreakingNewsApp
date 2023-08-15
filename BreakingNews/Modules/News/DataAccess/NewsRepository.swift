@@ -46,30 +46,32 @@ class NewsRepository: NewsRepositoryProtocol {
             return publisher
         } else {
             print("NOT Connected")
-            
-//            subject.send(coredate.getArticles())
-            return Just(coredate.getArticles())
+        return Just(coredate.getArticles())
                 .setFailureType(to: ErrorMessage.self)
                 .eraseToAnyPublisher()
         }
     }
     
     func getSpecificNews(query: String) -> AnyPublisher<[Article], ErrorMessage> {
-        
         let subject = PassthroughSubject<[Article], ErrorMessage>()
         let configurationRequest = API.getSpecificNews(query: query)
         let publisher = subject.eraseToAnyPublisher()
-        
-        RequestManager.beginRequest(request: configurationRequest, model: News.self)
-            .sink(receiveCompletion: { completion in
-                if case let .failure(error) = completion {
-                    subject.send(completion: .failure(error))
-                }
-            },receiveValue: { news in
-                subject.send(news.articles ?? [])
-            })
-            .store(in: &cancellabels)
-        return publisher
+        if connectionChecker.isInternetAvailable() {
+            RequestManager.beginRequest(request: configurationRequest, model: News.self)
+                .sink(receiveCompletion: { completion in
+                    if case let .failure(error) = completion {
+                        subject.send(completion: .failure(error))
+                    }
+                },receiveValue: { news in
+                    subject.send(news.articles ?? [])
+                })
+                .store(in: &cancellabels)
+            return publisher
+        } else {
+            return Just([])
+                .setFailureType(to: ErrorMessage.self)
+                .eraseToAnyPublisher()
+        }
     }
 }
 
