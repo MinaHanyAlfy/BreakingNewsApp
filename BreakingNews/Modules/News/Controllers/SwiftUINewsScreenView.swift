@@ -42,6 +42,7 @@ struct SwiftUINewsScreenView: View {
     }
 }
 
+//Holder For ViewController
 struct NewsDetailViewController: UIViewControllerRepresentable {
     var viewModel: NewsViewModelProtocol
     

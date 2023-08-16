@@ -64,6 +64,7 @@ extension NewsViewController: UITableViewDataSource {
         
     }
 }
+
 //MARK: - UITableViewDelegate -
 extension NewsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
