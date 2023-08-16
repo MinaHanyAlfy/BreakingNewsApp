@@ -36,10 +36,10 @@ class NewsRepository: NewsRepositoryProtocol {
                     subject.send(news.articles ?? [])
                     if news.articles?.count ?? 0 > 0  {
                         self.coredate.clearArticles()
-                        self.coredate.saveArticles(articles: news.articles ?? [])
+                        if self.coredate.getArticles().isEmpty {
+                            self.coredate.saveArticles(articles: news.articles ?? [])
+                        }
                     }
-                    //                subject.send(self.coredate.getArticles())
-                    //                self.coredate.saveArticles(articles: news.articles ?? [])
                 })
                 .store(in: &cancellabels)
             print("Connected")

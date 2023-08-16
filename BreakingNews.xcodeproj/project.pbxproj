@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7F0B46412A86A665005A27DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B46402A86A665005A27DD /* AppDelegate.swift */; };
 		7F0B46432A86A665005A27DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B46422A86A665005A27DD /* SceneDelegate.swift */; };
-		7F0B46452A86A665005A27DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B46442A86A665005A27DD /* ViewController.swift */; };
 		7F0B464B2A86A665005A27DD /* BreakingNews.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B46492A86A665005A27DD /* BreakingNews.xcdatamodeld */; };
 		7F0B464D2A86A667005A27DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F0B464C2A86A667005A27DD /* Assets.xcassets */; };
 		7F0B46502A86A667005A27DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F0B464E2A86A667005A27DD /* LaunchScreen.storyboard */; };
@@ -67,7 +66,6 @@
 		7F0B463D2A86A665005A27DD /* BreakingNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BreakingNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F0B46402A86A665005A27DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F0B46422A86A665005A27DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F0B46442A86A665005A27DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7F0B464A2A86A665005A27DD /* BreakingNews.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BreakingNews.xcdatamodel; sourceTree = "<group>"; };
 		7F0B464C2A86A667005A27DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F0B464F2A86A667005A27DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				7F0B46732A86AA22005A27DD /* Utilities */,
 				7F0B46402A86A665005A27DD /* AppDelegate.swift */,
 				7F0B46422A86A665005A27DD /* SceneDelegate.swift */,
-				7F0B46442A86A665005A27DD /* ViewController.swift */,
 				7F0B464C2A86A667005A27DD /* Assets.xcassets */,
 				7F0B464E2A86A667005A27DD /* LaunchScreen.storyboard */,
 				7F0B46512A86A667005A27DD /* Info.plist */,
@@ -481,7 +478,6 @@
 				7F4BCAE42A88100500CD1F83 /* NewsViewModel.swift in Sources */,
 				7F37E8C62A8B55ED00C7F8AE /* NewsTableViewCell.swift in Sources */,
 				7F4BCAFC2A8A9A8B00CD1F83 /* String+Extension.swift in Sources */,
-				7F0B46452A86A665005A27DD /* ViewController.swift in Sources */,
 				7F0B464B2A86A665005A27DD /* BreakingNews.xcdatamodeld in Sources */,
 				7F4BCAC82A877E4000CD1F83 /* News.swift in Sources */,
 				7FB3F0C32A8B863300A02404 /* CoreDataManager.swift in Sources */,

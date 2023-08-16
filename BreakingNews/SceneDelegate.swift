@@ -11,7 +11,8 @@ import SwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
+    let langDeviceCode = Locale.current.languageCode ?? "en"
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -19,12 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let newsViewController = NewsViewController()
-        newsViewController.tabBarItem.title = "Swift NEWS"
+        newsViewController.tabBarItem.title = "Swift NEWS".localizeString(string: langDeviceCode)
         newsViewController.tabBarItem.image = UIImage(systemName: "newspaper")
         let swiftNewsView = SwiftUINewsScreenView()
         let host = UIHostingController(rootView: swiftNewsView)
         let newsNavigationController = UINavigationController(rootViewController: newsViewController)
-        host.tabBarItem.title = "SWIFT UI NEWS"
+        host.tabBarItem.title = "SWIFT UI NEWS".localizeString(string: langDeviceCode)
         host.tabBarItem.image = UIImage(systemName: "swift")
         let tabBar = UITabBarController()
         tabBar.viewControllers = [newsNavigationController, host]

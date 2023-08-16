@@ -10,14 +10,17 @@ import CoreData
 
 
 let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-let managedContext: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
 
 class CoreDataManager {
     static let shared = CoreDataManager()
-     var context: NSManagedObjectContext
+    var context: NSManagedObjectContext
+    let managedContext: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
 
     init() {
         self.context = managedContext
+    }
+    
+    deinit {
     }
     
     func save() {
@@ -41,7 +44,7 @@ extension CoreDataManager {
             sourceCD.id = article.source?.id ?? ""
             sourceCD.name = article.source?.name ?? ""
             articleCD.source = sourceCD
-
+            
             do {
                 try context.save()
                 print("✅ Success")
