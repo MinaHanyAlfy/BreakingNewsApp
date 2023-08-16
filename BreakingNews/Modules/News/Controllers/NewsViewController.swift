@@ -91,8 +91,6 @@ extension NewsViewController {
             .sink(receiveValue: { [weak self] fetched in
                 if fetched ?? false {
                     self?.fetchSuccess()
-                } else {
-                    //                    self?.noArticlesViewLayout()
                 }
             })
             .store(in: &cancellabels)
