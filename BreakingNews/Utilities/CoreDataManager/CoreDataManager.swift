@@ -31,15 +31,15 @@ extension CoreDataManager {
         for article in articles {
             let articleCD = ArticleCD(context: context)
             let sourceCD = SourceCD(context: context)
-            articleCD.title = article.title
-            articleCD.desc = article.description
-            articleCD.content = article.content
-            articleCD.url = article.url
-            articleCD.urlToImage = article.urlToImage
-            articleCD.author = article.author
-            articleCD.publishedAt = article.publishedAt
-            sourceCD.id = article.source?.id
-            sourceCD.name = article.source?.name
+            articleCD.title = article.title ?? ""
+            articleCD.desc = article.description ?? ""
+            articleCD.content = article.content ?? ""
+            articleCD.url = article.url ?? ""
+            articleCD.urlToImage = article.urlToImage ?? ""
+            articleCD.author = article.author ?? ""
+            articleCD.publishedAt = article.publishedAt ?? ""
+            sourceCD.id = article.source?.id ?? ""
+            sourceCD.name = article.source?.name ?? ""
             articleCD.source = sourceCD
 
             do {

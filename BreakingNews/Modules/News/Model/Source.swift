@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Source
-struct Source: Decodable {
+struct Source: Decodable, Identifiable {
     var id: String?
     var name: String? = ""
     

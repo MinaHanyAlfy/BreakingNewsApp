@@ -11,6 +11,7 @@ enum NewsIntent {
     case loadNews
     case loadSpecificNews(query: String)
     case selectedNews(index: Int)
+    case fetchNewsSwiftUI
 }
 
 

@@ -27,8 +27,11 @@ protocol NewsViewModelProtocol {
     func articleUrl() -> String
 }
 
-class NewsViewModel: NewsViewModelProtocol {
+class NewsViewModel: NewsViewModelProtocol, ObservableObject {
     var selectedArticle: Article?
+    
+    @Published private(set) var viewState: ArticlesViewState = ArticlesViewState(articles: [], errorMessage: .none)
+        
     
     @Published private var error: ErrorMessage? = nil
     var errorPublisher: Published<ErrorMessage?>.Publisher {$error}
@@ -56,7 +59,8 @@ class NewsViewModel: NewsViewModelProtocol {
             getSpecificNews(query: query)
         case .selectedNews(let index):
             self.selectedArticle = articles[index]
-            return
+        case .fetchNewsSwiftUI:
+            getNews()
         }
     }
     
@@ -66,10 +70,12 @@ class NewsViewModel: NewsViewModelProtocol {
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
                     self?.error = error
+                    self?.viewState.errorMessage = error
                 }
             }, receiveValue: { [weak self] data in
                 self?.articles = data
                 self?.newsDataSuccess = true
+                self?.viewState.articles = data
             })
             .store(in: &cancellabels)
     }

@@ -8,7 +8,9 @@
 import Foundation
 
 // MARK: - Article
-struct Article: Decodable {
+struct Article: Decodable, Identifiable{
+    var id: ObjectIdentifier?
+    
     var source: Source?
     var author: String? = ""
     var title: String? = ""

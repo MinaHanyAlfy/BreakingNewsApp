@@ -42,6 +42,8 @@
 		7FB3F0CB2A8B8B5600A02404 /* SourceCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3F0C72A8B8B5600A02404 /* SourceCD+CoreDataProperties.swift */; };
 		7FB3F0CF2A8B997C00A02404 /* ConnectionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3F0CE2A8B997C00A02404 /* ConnectionChecker.swift */; };
 		7FB3F0D22A8BAF9400A02404 /* ZeroStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3F0D12A8BAF9400A02404 /* ZeroStateView.swift */; };
+		7FB3F0D42A8CAD6300A02404 /* SwiftUINewsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3F0D32A8CAD6300A02404 /* SwiftUINewsScreenView.swift */; };
+		7FB3F0D72A8CB2DE00A02404 /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FB3F0D62A8CB2DE00A02404 /* ArticleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		7FB3F0C72A8B8B5600A02404 /* SourceCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SourceCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7FB3F0CE2A8B997C00A02404 /* ConnectionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionChecker.swift; sourceTree = "<group>"; };
 		7FB3F0D12A8BAF9400A02404 /* ZeroStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroStateView.swift; sourceTree = "<group>"; };
+		7FB3F0D32A8CAD6300A02404 /* SwiftUINewsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUINewsScreenView.swift; sourceTree = "<group>"; };
+		7FB3F0D62A8CB2DE00A02404 /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +273,7 @@
 		7F4BCAC42A877C8600CD1F83 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FB3F0D52A8CB2BF00A02404 /* SwiftUIViews */,
 				7F4BCB032A8AA18D00CD1F83 /* NewsDetailsViewController.xib */,
 				7F37E8C52A8B55ED00C7F8AE /* NewsTableViewCell.swift */,
 				7F97E24A2A8B56FC007C9E46 /* NewsTableViewCell.xib */,
@@ -281,6 +286,7 @@
 			children = (
 				7F4BCAD92A87902A00CD1F83 /* NewsViewController.swift */,
 				7F4BCADF2A87959C00CD1F83 /* NewsDetailsViewController.swift */,
+				7FB3F0D32A8CAD6300A02404 /* SwiftUINewsScreenView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -318,6 +324,14 @@
 				7FB3F0D12A8BAF9400A02404 /* ZeroStateView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		7FB3F0D52A8CB2BF00A02404 /* SwiftUIViews */ = {
+			isa = PBXGroup;
+			children = (
+				7FB3F0D62A8CB2DE00A02404 /* ArticleCell.swift */,
+			);
+			path = SwiftUIViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,6 +477,7 @@
 				7F4BCAD12A87809C00CD1F83 /* NewsRepository.swift in Sources */,
 				7F0B46782A86AA87005A27DD /* RequestManager.swift in Sources */,
 				7F0B46802A86CBE1005A27DD /* UIImageView+Extension.swift in Sources */,
+				7FB3F0D72A8CB2DE00A02404 /* ArticleCell.swift in Sources */,
 				7F4BCAE42A88100500CD1F83 /* NewsViewModel.swift in Sources */,
 				7F37E8C62A8B55ED00C7F8AE /* NewsTableViewCell.swift in Sources */,
 				7F4BCAFC2A8A9A8B00CD1F83 /* String+Extension.swift in Sources */,
@@ -479,6 +494,7 @@
 				7F4BCADB2A87902A00CD1F83 /* NewsViewController.swift in Sources */,
 				7F0B46822A86CC22005A27DD /* UITableView+Extension.swift in Sources */,
 				7F0B467E2A86AB7E005A27DD /* API.swift in Sources */,
+				7FB3F0D42A8CAD6300A02404 /* SwiftUINewsScreenView.swift in Sources */,
 				7F0B46432A86A665005A27DD /* SceneDelegate.swift in Sources */,
 				7F4BCACC2A877E6600CD1F83 /* Source.swift in Sources */,
 			);
@@ -677,7 +693,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -705,7 +721,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
