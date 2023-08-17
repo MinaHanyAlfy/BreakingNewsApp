@@ -44,11 +44,11 @@ struct ArticleCell: View {
         
     }
 }
+
 struct ArticleCell_Previews: PreviewProvider {
     static var previews: some View {
-        var article = Article(id: nil, source: nil, author: nil, title: nil, description: nil, url: nil, urlToImage: nil, publishedAt: nil, content: nil)
+        let article = Article(id: nil, source: nil, author: nil, title: nil, description: nil, url: nil, urlToImage: nil, publishedAt: nil, content: nil)
         ArticleCell(article: article)
-//        ArticleCell_Previews
     }
 }
 
