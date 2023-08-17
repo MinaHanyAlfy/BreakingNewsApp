@@ -9,7 +9,7 @@ import UIKit
 import SafariServices
 
 class NewsDetailsViewController: UIViewController {
-
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var newsImageView: UIImageView!
@@ -23,12 +23,13 @@ class NewsDetailsViewController: UIViewController {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var showArticalButton: UIButton!
     
+    let dateFormatter = DateFormatter()
     let langDeviceCode = Locale.current.languageCode ?? "en"
     var viewModel: NewsViewModelProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       handleViewsLocalization()
+        handleViewsLocalization()
     }
     
     @IBAction func showArticalAction(_ sender: Any) {
@@ -47,9 +48,14 @@ class NewsDetailsViewController: UIViewController {
         sourceLabel.text = viewModel.articleSourceName()
         contentLabel.text = viewModel.articleContent()
         descriptionLabel.text = viewModel.articleDescription()
-        newsDateLabel.text = viewModel.articleDate()
         titleLabel.text = viewModel.articleTitle()
         showArticalButton.layer.cornerRadius = 18
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let date = dateFormatter.date(from: viewModel.articleDate()) ?? Date()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let dateResult = dateFormatter.string(from: date)
+        newsDateLabel.text = "\(dateResult)"
     }
     
     private func handleViewsLocalization() {
