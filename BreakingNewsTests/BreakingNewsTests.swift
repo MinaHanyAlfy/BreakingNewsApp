@@ -9,7 +9,7 @@ import XCTest
 @testable import BreakingNews
 
 final class BreakingNewsTests: XCTestCase {
-
+    let coreData = CoreDataManager.shared
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -32,5 +32,12 @@ final class BreakingNewsTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
+    
+    //MARK: - CORE DATA MANAGER TESTS-
+    func testCoreData() throws {
+        coreData.clearArticles()
+        let article = Article(id: nil, source: Source(id: "123",name: "Harvey Specter"), author: "Mike Rauth", title: "Person Hardman", description: "About Lawyers", url: "", urlToImage: "https://google.com/image/123", publishedAt: "08-08-2023", content: "There's no content")
+        coreData.saveArticles(articles: [article])
+        XCTAssertEqual(article.title, coreData.getArticles().first?.title)
+    }
 }

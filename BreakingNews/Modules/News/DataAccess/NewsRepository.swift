@@ -34,6 +34,7 @@ class NewsRepository: NewsRepositoryProtocol {
                     }
                 },receiveValue: { news in
                     subject.send(news.articles ?? [])
+                    
                     if news.articles?.count ?? 0 > 0  {
                         self.coredate.clearArticles()
                         if self.coredate.getArticles().isEmpty {
