@@ -10,7 +10,7 @@ import Combine
 import CoreData
 
 
-protocol NewsRepositoryProtocol {
+protocol NewsRepositoryProtocol: AnyObject {
     func getNews() -> AnyPublisher<[Article], ErrorMessage>
     func getSpecificNews(query: String) -> AnyPublisher<[Article], ErrorMessage>
 }

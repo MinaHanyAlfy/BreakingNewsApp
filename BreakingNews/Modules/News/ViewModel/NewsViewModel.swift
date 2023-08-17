@@ -44,7 +44,7 @@ class NewsViewModel: NewsViewModelProtocol, ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    private var repo: NewsRepositoryProtocol!
+    private var repo: NewsRepositoryProtocol?
     private var cancellabels = Set<AnyCancellable>()
     
     init(repo: NewsRepository = NewsRepository()) {
@@ -65,7 +65,7 @@ class NewsViewModel: NewsViewModelProtocol, ObservableObject {
     }
     
     func getNews() {
-        repo.getNews()
+        repo?.getNews()
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
@@ -83,7 +83,7 @@ class NewsViewModel: NewsViewModelProtocol, ObservableObject {
     
     func getSpecificNews(query: String) {
         self.query = query
-        repo.getSpecificNews(query: query)
+        repo?.getSpecificNews(query: query)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {
@@ -146,6 +146,10 @@ class NewsViewModel: NewsViewModelProtocol, ObservableObject {
             return selectedArticle?.url ?? ""
         }
         return ""
+    }
+    
+    deinit {
+        print("NewsViewModel instance deinit")
     }
 }
 

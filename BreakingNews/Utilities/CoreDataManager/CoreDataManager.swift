@@ -8,23 +8,19 @@
 import UIKit
 import CoreData
 
-
 let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 class CoreDataManager {
     static let shared = CoreDataManager()
-    var context: NSManagedObjectContext
-    let managedContext: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-
-    init() {
-        self.context = managedContext
-    }
-    
-    deinit {
-    }
+    let context: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
     
     func save() {
         appDelegate.saveContext()
+    }
+    
+    deinit {
+        print("Core Data instance deinit")
+        
     }
     
 }
